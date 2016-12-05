@@ -10,12 +10,12 @@
 	  "email": "john@fastguide.eu"
 	}
   ],
-	"repositories": [
-		{
-			"type": "vcs",
-			"url": "https://github.com/johnvt/NotificationPusher"
-		},
-	
+  "repositories": [
+	{
+	  "type": "vcs",
+	  "url": "https://github.com/johnvt/NotificationPusher"
+	}
+  ],
   "require": {
 	"php": "> 5.5.9",
 	"illuminate/database": "5.3.*",
