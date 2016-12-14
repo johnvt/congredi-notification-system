@@ -4,8 +4,8 @@ use Congredi\NotificationSystem\Exceptions\InvalidNotificationTypeException;
 use Congredi\NotificationSystem\NotificationTypes\Abstracts\AbstractNotificationType;
 use Congredi\NotificationSystem\Traits\DispatchTrait;
 use Illuminate\Contracts\Bus\Dispatcher;
-use Illuminate\Contracts\Foundation\Application;
 use Congredi\NotificationSystem\Jobs\GenericJob;
+use Laravel\Lumen\Application;
 
 class NotificationSystemManager implements NotificationSystemInterface
 {
@@ -19,12 +19,12 @@ class NotificationSystemManager implements NotificationSystemInterface
 	/**
 	 * The application instance.
 	 *
-	 * @var \Illuminate\Contracts\Foundation\Application
+	 * @var \Laravel\Lumen\Application
 	 */
 	protected $app;
 
 	/**
-	 * @param \Illuminate\Contracts\Foundation\Application $app
+	 * @param \Laravel\Lumen\Application $app
 	 * @param \Illuminate\Contracts\Bus\Dispatcher $dispatcher
 	 */
 	public function __construct(Application $app, Dispatcher $dispatcher)
