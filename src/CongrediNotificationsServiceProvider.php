@@ -71,11 +71,11 @@ class CongrediNotificationsServiceProvider extends ServiceProvider
 	 */
 	public function registerProviders()
 	{
-		$this->app->bindShared('push.notification', function ($app) {
+		$this->app->singleton('push.notification', function ($app) {
 			return new PushNotification($app['config']->get('push-notifications'));
 		});
 
-		$this->app->bindShared('sms.notification', function ($app) {
+		$this->app->singleton('sms.notification', function ($app) {
 			$configs = $app['config']->get('sms-notifications');
 
 			$driver = $this->detectSMSSender($configs);
@@ -128,19 +128,19 @@ class CongrediNotificationsServiceProvider extends ServiceProvider
 	 */
 	public function registerNotificationTypesAdapters()
 	{
-		$this->app->bindShared(EmailAdapter::class, function ($app) {
+		$this->app->singleton(EmailAdapter::class, function ($app) {
 			$emailAdapter = new EmailAdapter($app->make('mailer'));
 
 			return $emailAdapter;
 		});
 
-		$this->app->bindShared(SmsAdapter::class, function ($app) {
+		$this->app->singleton(SmsAdapter::class, function ($app) {
 			$smsAdapter = new SmsAdapter($app->make('sms.notification'));
 
 			return $smsAdapter;
 		});
 
-		$this->app->bindShared(PushAdapter::class, function ($app) {
+		$this->app->singleton(PushAdapter::class, function ($app) {
 			$pushAdapter = new PushAdapter($app->make('push.notification'));
 
 			return $pushAdapter;
