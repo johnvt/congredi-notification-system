@@ -3,12 +3,11 @@
 use Illuminate\Bus\Queueable;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
-use Illuminate\Contracts\Bus\SelfHandling;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Congredi\NotificationSystem\NotificationTypes\Interfaces\NotificationTypeInterface;
 use Illuminate\Support\Facades\App;
 
-class GenericJob implements SelfHandling, ShouldQueue
+class GenericJob implements ShouldQueue
 {
 	use InteractsWithQueue, Queueable, SerializesModels;
 
